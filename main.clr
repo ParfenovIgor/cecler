@@ -1,0 +1,26 @@
+// jojih
+
+func foo(a) {
+    a <- 6
+}
+
+func main(argc, argv) {
+    def a
+    a := 457
+    def b // joijoi
+    b := a * 4 + a / (a - 2);
+    while (b - 3) {
+        b := b - 1
+    }
+    if (a + b) {
+        a := b + a;
+    }
+    else {
+        b := b - 1
+    }
+    def c
+    c := malloc(6)
+    foo(c)
+    a := $c
+    c := "abcab"
+}
