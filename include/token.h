@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+#include <string>
+
 enum TokenType {
     Token_Definition,
     Token_Func,
@@ -36,4 +39,15 @@ struct Token {
     TokenType token_type;
     std::string string_value;
     int int_value;
+};
+
+class TokenStream {
+public:
+    TokenStream(std::vector <Token> _token_stream);
+    Token GetToken();
+    void NextToken();
+
+private:
+    int pos;
+    std::vector <Token> token_stream;
 };

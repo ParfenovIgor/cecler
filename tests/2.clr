@@ -1,0 +1,9 @@
+// jojih
+
+{
+    def a, d
+    a := 457
+    def b // joijoi
+    b := a
+    c := "abcab"
+}
