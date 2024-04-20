@@ -1,10 +1,9 @@
-#include "lexer.h"
-#include "token.h"
 #include <fstream>
 #include <vector>
 #include <string>
-#include <sstream>
 #include <iostream>
+#include "../include/lexer.h"
+#include "../include/token.h"
 
 bool check(std::string buffer, int &x, std::string word, bool keyword, std::vector <Token> &token_stream, TokenType token_type) {
     int len = word.size();
@@ -17,12 +16,8 @@ bool check(std::string buffer, int &x, std::string word, bool keyword, std::vect
     else return false;
 }
 
-void lexer(std::string filename_in, std::string filename_out) {
+TokenStream lexer(std::string buffer) {
     std::vector <Token> token_stream;
-    std::ifstream fin(filename_in);
-    std::stringstream ss;
-    ss << fin.rdbuf();
-    std::string buffer = ss.str();
 
     int sz = buffer.size();
     for (int x = 0; x < sz;) {
@@ -81,7 +76,7 @@ void lexer(std::string filename_in, std::string filename_out) {
                 str.push_back(buffer[x]);
                 x++;
             }
-            token_stream.push_back({Token_ConstInt, str, 0});
+            token_stream.push_back({Token_Identifier, str, 0});
         }
         else if (buffer[x] == ' ' || buffer[x] == '\n' || buffer[x] == '\r' || buffer[x] == '\t') x++;
         
@@ -93,7 +88,5 @@ void lexer(std::string filename_in, std::string filename_out) {
 
     token_stream.push_back({Token_Eof, "", 0});
 
-    for (int i = 0; i < (int)token_stream.size(); i++) {
-        std::cout << i << ' ' << token_stream[i].token_type << ' ' << token_stream[i].string_value << ' ' << token_stream[i].int_value << std::endl;
-    }
+    return TokenStream(token_stream);
 }

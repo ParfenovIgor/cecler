@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cstring>
-#include "lexer.h"
+#include "../include/compile.h"
 
 void help() {
     std::cout << "cecler compiler" << std::endl;
@@ -27,7 +27,7 @@ int main(int argc, const char **argv) {
 
     if (filename_in.empty()) help();
     if (filename_out.empty()) filename_out = "out";
-    lexer(filename_in, filename_out);
+    compile(filename_in, filename_out);
 
     return 0;
 }
