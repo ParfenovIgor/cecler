@@ -1,9 +1,22 @@
 // jojih
 
 {
+    func foo(a, b, c) {
+
+    }
+
     def a, d
     a := 457
     def b // joijoi
     b := a
-    c := "abcab"
+    {
+        c := "abcab";
+    }
+    if (3) {
+        while (5) {
+            b := a;
+        }
+    };
+
+    foo(a, 4)
 }

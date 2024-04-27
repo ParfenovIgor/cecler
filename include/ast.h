@@ -32,6 +32,37 @@ public:
     std::shared_ptr <Expression> expression;
 };
 
+class Movement : public Statement {
+public:
+    std::string identifier;
+    std::shared_ptr <Expression> expression;
+};
+
+class If : public Statement {
+public:
+    std::shared_ptr <Expression> expression;
+    std::shared_ptr <Block> block_then, block_else;
+};
+
+class While : public Statement {
+public:
+    std::shared_ptr <Expression> expression;
+    std::shared_ptr <Block> block;
+};
+
+class FunctionDefinition : public Statement {
+public:
+    std::string name;
+    std::vector <std::string> arguments;
+    std::shared_ptr <Block> block;
+};
+
+class FunctionCall : public Statement {
+public:
+    std::string name;
+    std::vector <std::shared_ptr <Expression>> arguments;
+};
+
 class Identifier : public Expression {
 public:
     std::string identifier;
@@ -45,4 +76,21 @@ public:
 class ConstInt : public Expression {
 public:
     int const_int;
+};
+
+class BinaryOperator : public Expression {
+public:
+    std::shared_ptr <Expression> left, right;
+};
+
+class Addition : public BinaryOperator {
+
+};
+
+class Subtraction : public BinaryOperator {
+
+};
+
+class Multiplication : public BinaryOperator {
+
 };
