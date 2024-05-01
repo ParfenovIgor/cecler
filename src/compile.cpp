@@ -7,6 +7,7 @@
 #include "../include/token.h"
 #include "../include/lexer.h"
 #include "../include/syntax.h"
+#include "../include/generate.h"
 #include "../include/ast.h"
 
 void compile(std::string filename_in, std::string filename_out) {
@@ -17,4 +18,7 @@ void compile(std::string filename_in, std::string filename_out) {
 
     TokenStream token_stream = lexer(buffer);
     std::shared_ptr <AST> ast = syntax(token_stream);
+
+    std::ofstream fout(filename_out);
+    generate(ast, fout);
 }

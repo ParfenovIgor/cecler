@@ -1,0 +1,39 @@
+// jojih
+
+{
+
+func foo(a, b, c) {
+
+}
+
+func main() {
+    def a
+    a := 3
+    {
+        def e
+        e := 7
+    }
+    if (a) {
+        def f
+        f := 14
+    }
+    else {
+        def g
+        g := 42
+        if (a) {
+            def h
+            h := 100
+        }
+        else {
+            def i
+            i := 200
+        }
+    }
+    def b, c
+    b := 5
+    c := 6
+    def d
+    d := a
+}
+// a e g i h f b c d
+}
