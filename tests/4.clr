@@ -6,7 +6,7 @@ func foo(a, b, c) {
 
 }
 
-func main() {
+func _start() {
     def a
     a := 3
     {
@@ -34,6 +34,7 @@ func main() {
     c := 6
     def d
     d := a
+    d <- b + c
 }
 // a e g i h f b c d
 }
