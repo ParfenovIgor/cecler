@@ -70,9 +70,9 @@ TokenStream lexer(std::string buffer) {
         else if (check(buffer, x, "<", false, token_stream, Token_Less));
         else if (check(buffer, x, "=", false, token_stream, Token_Equal));
 
-        else if (isalpha(buffer[x])) {
+        else if (isalpha(buffer[x]) || buffer[x] == '_') {
             std::string str;
-            while (x < sz && isalnum(buffer[x])) {
+            while (x < sz && (isalnum(buffer[x]) || buffer[x] == '_')) {
                 str.push_back(buffer[x]);
                 x++;
             }

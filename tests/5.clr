@@ -1,0 +1,16 @@
+{
+
+func boo(aa, bb, cc) {
+
+}
+
+func foo(a, b, c, d) {
+    c := a * b + c - d
+    boo(a, d, b);
+}
+
+func _start() {
+    foo(1, 2, 3, 4);
+}
+
+}

@@ -1,3 +1,5 @@
 #pragma once
 
-void compile(std::string filename_in, std::string filename_out);
+#include "../include/options.h"
+
+void compile(Options options);
