@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
 #include <cstring>
+#include <unistd.h>
+#include <sys/mman.h>
 #include "../include/compile.h"
 #include "../include/options.h"
 

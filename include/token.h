@@ -39,6 +39,8 @@ struct Token {
     TokenType token_type;
     std::string string_value;
     int int_value;
+    int line_begin, position_begin, line_end, position_end;
+    std::string filename;
 };
 
 class TokenStream {

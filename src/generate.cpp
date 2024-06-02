@@ -166,7 +166,7 @@ void FunctionCall::Generate(std::ostream &out, GenerateContext &context) {
         out << "    mov " << arg_reg[i] << ", dword [rsp - " << (i + 1) * 4 << "]" << std::endl;
     }
     
-    out << "    jmp " << name << std::endl;
+    out << "    call " << name << std::endl;
 }
 
 void Identifier::Generate(std::ostream &out, GenerateContext &context) {

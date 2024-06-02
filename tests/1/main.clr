@@ -1,0 +1,12 @@
+{
+
+include "foo.hlr"
+include "stdlib.hlr"
+
+func _start() {
+    // foo()
+    def a
+    mmap(32)
+}
+
+}
