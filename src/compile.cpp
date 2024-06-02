@@ -21,13 +21,10 @@ int execvp(const char* file, const char* const (&argv)[N]) {
 }
 
 void compile(Options options) {
-    std::ifstream fin(options.filename_in);
-    std::stringstream ss;
-    ss << fin.rdbuf();
-    std::string buffer = ss.str();
+    std::vector <Token> token_vector = lexer(options.filename_in);
+    token_vector.push_back({Token_Eof, "", 0, 0, 0, 0, 0});
 
-    TokenStream token_stream = lexer(buffer);
-    std::shared_ptr <AST> ast = syntax(token_stream);
+    std::shared_ptr <AST> ast = syntax(TokenStream(token_vector));
 
     std::string generate_filename;
     if (options.assemble) generate_filename = ".tmpasm";

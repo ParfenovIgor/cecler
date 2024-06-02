@@ -1,0 +1,2 @@
+func fork()
+func mmap(size)
